@@ -23,8 +23,11 @@ public class MainApp
     {
         ApplicationContext context = new AnnotationConfigApplicationContext(HelloWorldConfig.class);
         HelloWorld helloWorld = context.getBean(HelloWorld.class);
-        helloWorld.setMessage("I am in Staten Island, New York");
 
+
+        System.out.println(helloWorld.getMessage());
+
+        helloWorld.setMessage("I am in Staten Island, New York");
         System.out.println(helloWorld.getMessage());
     }
 }

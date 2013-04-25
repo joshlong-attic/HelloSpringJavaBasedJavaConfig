@@ -1,8 +1,11 @@
 package com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.config;
 
 import com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.bean.HelloWorld;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 
 /**
  * Date:   4/25/13 / 9:37 AM
@@ -21,12 +24,20 @@ import org.springframework.context.annotation.Configuration;
 
 
 @Configuration
+@PropertySource("classpath:application.properties")
 public class HelloWorldConfig
 {
+
+    @Autowired
+    Environment env;
 
     @Bean
     public HelloWorld getHelloWorld()
     {
-        return new HelloWorld();
+        HelloWorld hw = new HelloWorld();
+
+        hw.setMessage(env.getProperty("bean.text"));
+
+        return hw;
     }
 }
