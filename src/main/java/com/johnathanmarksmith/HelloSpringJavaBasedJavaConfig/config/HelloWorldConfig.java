@@ -38,6 +38,10 @@ public class HelloWorldConfig
     {
         HelloWorld hw = new HelloWorld();
 
+       /*
+        This is use to read in the property from the application.properties file
+       */
+
         hw.setMessage(env.getProperty("bean.text"));
 
         return hw;
