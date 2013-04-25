@@ -1,6 +1,7 @@
 ### HelloSpringJavaBasedJavaConfig
 
-This is a sample Spring Project to show how to use JavaConfig and not XML files.
+This is a sample Spring Project to show how to use JavaConfig and not XML files. This example also will show how to use @PropertySource for reading properties and using the Environment Object to add properties to your objects.
+
 
 checkout the project from github.
 
