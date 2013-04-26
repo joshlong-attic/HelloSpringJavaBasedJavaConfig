@@ -21,12 +21,12 @@
 
 
     <logger name="org.springframework">
-        <level value="WARN"/>
+        <level value="TRACE"/>
         <appender-ref ref="console"/>
     </logger>
 
 
-   <logger name="org.hibernate.type">
+   <logger name="org.hibernate">
         <level value="TRACE"/>
         <appender-ref ref="console"/>
     </logger>

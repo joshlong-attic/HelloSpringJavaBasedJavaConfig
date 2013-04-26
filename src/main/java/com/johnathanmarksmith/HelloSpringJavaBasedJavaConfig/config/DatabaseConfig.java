@@ -1,6 +1,7 @@
 package com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.config;
 
 
+import org.apache.commons.dbcp.BasicDataSource;
 import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
@@ -47,9 +49,35 @@ public class DatabaseConfig
 
     @Bean
     public DataSource dataSource() {
-        EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
 
-        return builder.setType(EmbeddedDatabaseType.HSQL).build();
+        EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
+        EmbeddedDatabase db = builder.setType(EmbeddedDatabaseType.HSQL).
+        addScript("schema.sql").build();
+
+        return db;
+    }
+
+
+    @Bean
+    public DataSource hsqlDataSource()  {
+
+        BasicDataSource ds = new BasicDataSource();
+
+
+        try {
+            ds.setDriverClassName("org.hsqldb.jdbcDriver");
+            ds.setUsername("sa");
+            ds.setPassword("");
+            ds.setUrl("jdbc:hsqldb:mem:mydb");
+        }
+        catch (Exception e)
+        {
+            LOGGER.error(e.getMessage());
+        }
+        return ds;
+
+
+
     }
 
     @Bean
@@ -57,7 +85,7 @@ public class DatabaseConfig
     {
 
         LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
-        factoryBean.setDataSource(dataSource());
+        factoryBean.setDataSource(hsqlDataSource());
         factoryBean.setHibernateProperties(getHibernateProperties());
         factoryBean.setPackagesToScan(new String[]{"com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.model"});
 

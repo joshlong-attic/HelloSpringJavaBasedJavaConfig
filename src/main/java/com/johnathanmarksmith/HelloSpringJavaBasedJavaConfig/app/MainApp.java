@@ -5,6 +5,7 @@ import com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.bean.HelloWorld;
 import com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.config.HelloWorldConfig;
 import com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.model.Message;
 import com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.service.MessageService;
+import com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.service.MessageServiceImpl;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -28,12 +29,14 @@ public class MainApp
 
     private static final Logger LOGGER = getLogger(MainApp.class);
 
-    @Autowired
-    protected static MessageService mService;
 
     public static void main(String[] args)
     {
         ApplicationContext context = new AnnotationConfigApplicationContext(HelloWorldConfig.class);
+
+
+        MessageService mService  = context.getBean(MessageService.class);
+
         HelloWorld helloWorld = context.getBean(HelloWorld.class);
 
         /**
@@ -50,6 +53,7 @@ public class MainApp
 
         Message message = new Message();
         message.setMessage(helloWorld.getMessage());
+        //
         mService.SaveMessage(message);
 
 

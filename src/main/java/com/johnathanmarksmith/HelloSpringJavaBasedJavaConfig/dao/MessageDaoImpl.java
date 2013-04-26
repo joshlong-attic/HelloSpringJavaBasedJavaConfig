@@ -3,6 +3,7 @@ package com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.dao;
 import com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.model.Message;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -58,6 +59,15 @@ public class MessageDaoImpl implements MessageDao
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
     public void SaveOrUpdateMessage(Message message)
     {
+        try
+        {
+            Session mySession = sessionFactory.getCurrentSession();
+            mySession.save(message);
+            mySession.flush();
+        } catch (Exception e)
+        {
+            log.fatal(e.getMessage());
+        }
     }
 
 
