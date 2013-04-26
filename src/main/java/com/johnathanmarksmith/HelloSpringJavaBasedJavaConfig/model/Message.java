@@ -26,8 +26,6 @@ public class Message
     @Column(name = "message")
     private String message;
 
-
-
     public String getMessage()
     {
         return message;
