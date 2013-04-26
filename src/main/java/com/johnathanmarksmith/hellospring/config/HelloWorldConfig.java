@@ -25,7 +25,6 @@ import org.springframework.core.env.Environment;
 
 
 @Configuration
-@ComponentScan(basePackages = { })
 @PropertySource("classpath:application.properties")
 public class HelloWorldConfig
 {
