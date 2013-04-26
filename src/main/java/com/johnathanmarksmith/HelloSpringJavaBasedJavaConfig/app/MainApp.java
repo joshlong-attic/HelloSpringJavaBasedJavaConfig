@@ -3,10 +3,10 @@ package com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.app;
 
 import com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.bean.HelloWorld;
 import com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.config.HelloWorldConfig;
+import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import org.apache.log4j.Logger;
 import static org.apache.log4j.Logger.getLogger;
 
 /**

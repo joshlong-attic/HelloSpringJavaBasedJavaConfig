@@ -19,18 +19,26 @@
         </layout>
     </appender>
 
+
     <logger name="org.springframework">
         <level value="WARN"/>
         <appender-ref ref="console"/>
     </logger>
 
-        <logger name="org.hibernate.type">
-        <level value="WARN"/>
+
+   <logger name="org.hibernate.type">
+        <level value="TRACE"/>
         <appender-ref ref="console"/>
     </logger>
 
+    <logger name="org.hsqldb">
+        <level value="TRACE"/>
+        <appender-ref ref="console"/>
+    </logger>
+
+
     <root>
-        <priority value="debug"/>
+        <priority value="TRACE"/>
         <appender-ref ref="console"/>
     </root>
 </log4j:configuration>
