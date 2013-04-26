@@ -1,4 +1,4 @@
-package com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.bean;
+package com.johnathanmarksmith.hellospring.bean;
 
 /**
  * Date:   4/25/13 / 9:50 AM

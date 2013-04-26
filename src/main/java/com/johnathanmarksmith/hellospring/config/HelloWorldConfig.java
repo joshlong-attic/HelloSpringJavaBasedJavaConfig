@@ -1,6 +1,6 @@
-package com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.config;
+package com.johnathanmarksmith.hellospring.config;
 
-import com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.bean.HelloWorld;
+import com.johnathanmarksmith.hellospring.bean.HelloWorld;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -18,14 +18,14 @@ import org.springframework.core.env.Environment;
  *
  *    This Would be the same as the following
  *    <beans>
- *       <bean id="helloWorld" class="com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.bean.HelloWorld" />
+ *       <bean id="helloWorld" class="com.johnathanmarksmith.hellospring.bean.HelloWorld" />
  *    </beans>
  *
  */
 
 
 @Configuration
-@ComponentScan(basePackages = {"com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.bean"})
+@ComponentScan(basePackages = { })
 @PropertySource("classpath:application.properties")
 public class HelloWorldConfig
 {

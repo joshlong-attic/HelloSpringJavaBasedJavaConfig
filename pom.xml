@@ -88,7 +88,7 @@
                             </descriptorRefs>
                             <archive>
                                 <manifest>
-                                    <mainClass>com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.app.MainApp</mainClass>
+                                    <mainClass>com.johnathanmarksmith.hellospring.app.MainApp</mainClass>
                                 </manifest>
                             </archive>
                         </configuration>

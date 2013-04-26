@@ -1,12 +1,11 @@
-package com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.app;
+package com.johnathanmarksmith.hellospring.app;
 
 
-import com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.bean.HelloWorld;
-import com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.config.HelloWorldConfig;
+import com.johnathanmarksmith.hellospring.bean.HelloWorld;
+import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import org.apache.log4j.Logger;
 import static org.apache.log4j.Logger.getLogger;
 
 /**
@@ -15,19 +14,26 @@ import static org.apache.log4j.Logger.getLogger;
  * Email:  john@johnathanmarksmith.com
  * <p/>
  * Comments:
- *
- *     This is just a sample example of a Standalone Spring Java App
+ * <p/>
+ * This is just a sample example of a Standalone Spring Java App
  */
 
 
-public class MainApp
-{
+public class MainApp {
 
     private static final Logger LOGGER = getLogger(MainApp.class);
 
-    public static void main(String[] args)
-    {
-        ApplicationContext context = new AnnotationConfigApplicationContext(HelloWorldConfig.class);
+    private static String findParentPackage(Class<?> clazz) {
+        Package pkg = clazz.getPackage();
+        String packageName = pkg.getName();
+        return packageName.substring(0, packageName.lastIndexOf("."));
+    }
+
+    public static void main(String[] args) {
+
+
+        // scans everything below "com.johnathanmarksmith.hellospring"
+        ApplicationContext context = new AnnotationConfigApplicationContext( findParentPackage( MainApp.class) );
         HelloWorld helloWorld = context.getBean(HelloWorld.class);
 
         /**

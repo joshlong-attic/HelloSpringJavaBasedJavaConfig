@@ -1,7 +1,7 @@
-package com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.test;
+package com.johnathanmarksmith.hellospring.test;
 
-import com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.bean.HelloWorld;
-import com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.config.HelloWorldConfig;
+import com.johnathanmarksmith.hellospring.bean.HelloWorld;
+import com.johnathanmarksmith.hellospring.config.HelloWorldConfig;
 import junit.framework.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
