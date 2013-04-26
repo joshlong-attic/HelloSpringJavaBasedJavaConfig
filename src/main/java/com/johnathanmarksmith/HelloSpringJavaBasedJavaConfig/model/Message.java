@@ -13,27 +13,20 @@ import javax.persistence.*;
 
 
 @Entity
+
 @Table(name = "messages")
 public class Message
 {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private int id;
 
     @Column(name = "message")
     private String message;
 
-    public String getId()
-    {
-        return id;
-    }
 
-    public void setId(String id)
-    {
-        this.id = id;
-    }
 
     public String getMessage()
     {
@@ -49,8 +42,18 @@ public class Message
     public String toString()
     {
         return "Message{" +
-                "id='" + id + '\'' +
+                "id=" + id +
                 ", message='" + message + '\'' +
                 '}';
+    }
+
+    public int getId()
+    {
+        return id;
+    }
+
+    public void setId(int id)
+    {
+        this.id = id;
     }
 }
