@@ -5,7 +5,6 @@ import com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.model.Message;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -15,9 +14,8 @@ import java.util.List;
  * Email:  john@johnathanmarksmith.com
  * <p/>
  * Comments:
- *
- *    This service layer does not do much but I wanted to add it to show how you should layer you projects.
- *
+ * <p/>
+ * This service layer does not do much but I wanted to add it to show how you should layer you projects.
  */
 
 

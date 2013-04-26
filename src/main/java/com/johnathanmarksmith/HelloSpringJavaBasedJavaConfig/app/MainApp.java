@@ -5,9 +5,7 @@ import com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.bean.HelloWorld;
 import com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.config.HelloWorldConfig;
 import com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.model.Message;
 import com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.service.MessageService;
-import com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.service.MessageServiceImpl;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -21,8 +19,8 @@ import static org.apache.log4j.Logger.getLogger;
  * Email:  john@johnathanmarksmith.com
  * <p/>
  * Comments:
- *
- *     This is just a sample example of a Standalone Spring Java App
+ * <p/>
+ * This is just a sample example of a Standalone Spring Java App
  */
 
 
@@ -37,7 +35,7 @@ public class MainApp
         ApplicationContext context = new AnnotationConfigApplicationContext(HelloWorldConfig.class);
 
 
-        MessageService mService  = context.getBean(MessageService.class);
+        MessageService mService = context.getBean(MessageService.class);
 
         HelloWorld helloWorld = context.getBean(HelloWorld.class);
 
@@ -66,7 +64,7 @@ public class MainApp
         /**
          * Added New Message to the database
          */
-       // message.setMessage(helloWorld.getMessage());
+        // message.setMessage(helloWorld.getMessage());
         //mService.SaveMessage(message);
 
         /**
@@ -74,8 +72,6 @@ public class MainApp
          */
         List<Message> myList = mService.listMessages();
         LOGGER.debug("You Have " + myList.size() + "Message(s) In The Database");
-
-
 
 
     }

@@ -29,8 +29,8 @@ import static org.apache.log4j.Logger.getLogger;
  * Email:  john@johnathanmarksmith.com
  * <p/>
  * Comments:
- *
- *   This is use to setup the database config
+ * <p/>
+ * This is use to setup the database config
  */
 
 
@@ -48,34 +48,35 @@ public class DatabaseConfig
     Environment env;
 
     @Bean
-    public DataSource dataSource() {
+    public DataSource dataSource()
+    {
 
         EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
         EmbeddedDatabase db = builder.setType(EmbeddedDatabaseType.HSQL).
-        addScript("schema.sql").build();
+                addScript("schema.sql").build();
 
         return db;
     }
 
 
     @Bean
-    public DataSource hsqlDataSource()  {
+    public DataSource hsqlDataSource()
+    {
 
         BasicDataSource ds = new BasicDataSource();
 
 
-        try {
+        try
+        {
             ds.setDriverClassName("org.hsqldb.jdbcDriver");
             ds.setUsername("sa");
             ds.setPassword("");
             ds.setUrl("jdbc:hsqldb:mem:mydb");
-        }
-        catch (Exception e)
+        } catch (Exception e)
         {
             LOGGER.error(e.getMessage());
         }
         return ds;
-
 
 
     }

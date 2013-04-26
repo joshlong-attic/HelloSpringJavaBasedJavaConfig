@@ -6,8 +6,8 @@ package com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.bean;
  * Email:  john@johnathanmarksmith.com
  * <p/>
  * Comments:
- *
- *    This is just a very small bean for showing this example
+ * <p/>
+ * This is just a very small bean for showing this example
  */
 
 

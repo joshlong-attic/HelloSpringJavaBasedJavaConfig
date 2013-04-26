@@ -13,13 +13,12 @@ import org.springframework.core.env.Environment;
  * Email:  john@johnathanmarksmith.com
  * <p/>
  * Comments:
- *    This is the config example of how to use JavaConfig and not XML Files:
- *
- *    This Would be the same as the following
- *    <beans>
- *       <bean id="helloWorld" class="com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.bean.HelloWorld" />
- *    </beans>
- *
+ * This is the config example of how to use JavaConfig and not XML Files:
+ * <p/>
+ * This Would be the same as the following
+ * <beans>
+ * <bean id="helloWorld" class="com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.bean.HelloWorld" />
+ * </beans>
  */
 
 
@@ -34,7 +33,8 @@ public class HelloWorldConfig
     Environment env;
 
     @Bean
-    public MessageService messageService() {
+    public MessageService messageService()
+    {
         return new MessageServiceImpl();
     }
 

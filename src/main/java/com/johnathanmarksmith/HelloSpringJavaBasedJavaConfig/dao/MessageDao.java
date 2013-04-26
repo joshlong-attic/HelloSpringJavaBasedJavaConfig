@@ -17,6 +17,7 @@ import java.util.List;
 public interface MessageDao
 {
     public List<Message> listMessages();
+
     public void SaveOrUpdateMessage(Message message);
 
 }
