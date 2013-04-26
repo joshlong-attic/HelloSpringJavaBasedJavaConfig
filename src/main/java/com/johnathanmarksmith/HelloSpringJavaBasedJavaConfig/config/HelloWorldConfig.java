@@ -24,7 +24,7 @@ import org.springframework.core.env.Environment;
 
 @Configuration
 @ComponentScan(basePackages = {"com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig"})
-@Import(DatabaseConfig.class)
+@Import(DatabaseConfiguration.class)
 @PropertySource("classpath:application.properties")
 public class HelloWorldConfig
 {
