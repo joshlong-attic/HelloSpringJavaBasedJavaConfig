@@ -3,7 +3,10 @@ package com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.app;
 
 import com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.bean.HelloWorld;
 import com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.config.HelloWorldConfig;
+import com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.model.Message;
+import com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.service.MessageService;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -25,6 +28,9 @@ public class MainApp
 
     private static final Logger LOGGER = getLogger(MainApp.class);
 
+    @Autowired
+    protected static MessageService mService;
+
     public static void main(String[] args)
     {
         ApplicationContext context = new AnnotationConfigApplicationContext(HelloWorldConfig.class);
@@ -42,17 +48,15 @@ public class MainApp
 
         LOGGER.debug("Message from HelloWorld Bean: " + helloWorld.getMessage());
 
-        /**
-         *  I removed the following line... we are now using log4j
-         */
-        //System.out.println(helloWorld.getMessage());
+        Message message = new Message();
+        message.setMessage(helloWorld.getMessage());
+        mService.SaveMessage(message);
+
+
 
         helloWorld.setMessage("I am in Staten Island, New York");
 
-        /**
-         *  I removed the following line... we are now using log4j
-         */
-        //System.out.println(helloWorld.getMessage());
+
         LOGGER.debug("Message from HelloWorld Bean: " + helloWorld.getMessage());
     }
 }

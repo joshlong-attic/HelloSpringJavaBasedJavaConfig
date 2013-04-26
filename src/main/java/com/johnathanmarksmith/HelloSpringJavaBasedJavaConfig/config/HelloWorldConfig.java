@@ -2,10 +2,7 @@ package com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.config;
 
 import com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.bean.HelloWorld;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
 
 /**
@@ -26,6 +23,7 @@ import org.springframework.core.env.Environment;
 
 @Configuration
 @ComponentScan(basePackages = {"com.johnathanmarksmith.HelloSpringJavaBasedJavaConfig.bean"})
+@Import(DatabaseConfig.class)
 @PropertySource("classpath:application.properties")
 public class HelloWorldConfig
 {
