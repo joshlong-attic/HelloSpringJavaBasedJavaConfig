@@ -14,4 +14,7 @@ Thats it and you should see the following line on the console:
     I love New York.
     I am in Staten Island, New York
 
+
+This Project is using Java, Spring, Maven, jUnit, Log4J and Gitub.
+
 If you have any questions please email me at john@johnathanmarksmith.com
