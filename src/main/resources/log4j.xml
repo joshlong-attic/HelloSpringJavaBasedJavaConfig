@@ -19,12 +19,16 @@
         </layout>
     </appender>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9126ba63a6c1e52bfd7ded3372fb2895dcadf01b
     <logger name="org.springframework">
         <level value="WARN"/>
         <appender-ref ref="console"/>
     </logger>
 
+<<<<<<< HEAD
 
    <logger name="org.hibernate">
         <level value="WARN"/>
@@ -32,12 +36,19 @@
     </logger>
 
     <logger name="org.hsqldb">
+=======
+        <logger name="org.hibernate.type">
+>>>>>>> 9126ba63a6c1e52bfd7ded3372fb2895dcadf01b
         <level value="WARN"/>
         <appender-ref ref="console"/>
     </logger>
 
     <root>
+<<<<<<< HEAD
         <priority value="DEBUG"/>
+=======
+        <priority value="debug"/>
+>>>>>>> 9126ba63a6c1e52bfd7ded3372fb2895dcadf01b
         <appender-ref ref="console"/>
     </root>
 </log4j:configuration>

@@ -26,8 +26,7 @@
         <springframework-version>3.2.2.RELEASE</springframework-version>
     </properties>
 
-    <!-- Adding Spring Dependencies -->
-    <dependencies>
+     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
@@ -46,29 +45,25 @@
             <version>${springframework-version}</version>
         </dependency>
 
-
-
-        <dependency>
+         <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib</artifactId>
             <version>2.2.2</version>
         </dependency>
 
-        <!-- Adding Testing Dependencies -->
-        <dependency>
+         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.7</version>
             <scope>test</scope>
         </dependency>
 
-        <!-- Adding Logging Dependencies -->
-        <dependency>
+         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>1.2.16</version>
         </dependency>
-
+ 
         <!-- Adding Database Dependencies -->
         <dependency>
             <groupId>org.hsqldb</groupId>
@@ -114,7 +109,7 @@
         </dependency>
 
 
-    </dependencies>
+     </dependencies>
 
 
     <build>
