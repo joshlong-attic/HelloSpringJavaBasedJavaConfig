@@ -1,15 +1,13 @@
 package com.johnathanmarksmith.hellospring.dao;
 
 import com.johnathanmarksmith.hellospring.model.Message;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.apache.commons.logging.*;
+import org.hibernate.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.annotation.*;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 
@@ -24,16 +22,13 @@ import java.util.List;
 @Transactional
 @Repository
 public class MessageDaoImpl implements MessageDao {
-
-
-    private Log log = null;
+    private Log log = log = LogFactory.getLog(MessageDaoImpl.class);
     @Autowired
     private SessionFactory sessionFactory;
 
-    public MessageDaoImpl() {
-        super();
-        log = LogFactory.getLog(MessageDaoImpl.class);
-
+    @PostConstruct
+    public void setup() throws Throwable {
+        System.out.println("setup()");
     }
 
     @SuppressWarnings("unchecked")
@@ -48,7 +43,6 @@ public class MessageDaoImpl implements MessageDao {
             return null;
         }
     }
-
 
     @SuppressWarnings("unchecked")
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED)

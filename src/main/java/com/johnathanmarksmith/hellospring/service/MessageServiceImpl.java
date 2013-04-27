@@ -2,9 +2,9 @@ package com.johnathanmarksmith.hellospring.service;
 
 import com.johnathanmarksmith.hellospring.dao.MessageDao;
 import com.johnathanmarksmith.hellospring.model.Message;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.commons.logging.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -19,6 +19,7 @@ import java.util.List;
  */
 
 
+@Service
 public class MessageServiceImpl implements MessageService {
 
 

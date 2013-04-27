@@ -1,4 +1,4 @@
-package com.johnathanmarksmith.hellospring.config;
+package com.johnathanmarksmith.hellospring;
 
 
 import com.johnathanmarksmith.hellospring.bean.HelloWorld;
@@ -20,12 +20,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-/**
- * This is use to setup the database config
- *
- * @author Johnathan Mark Smith ( john@johnathanmarksmith.com)
- * @since 4/26/13 / 10:13 AM
- */
 @Configuration
 @EnableTransactionManagement
 @ComponentScan(basePackageClasses = {HelloWorld.class})
