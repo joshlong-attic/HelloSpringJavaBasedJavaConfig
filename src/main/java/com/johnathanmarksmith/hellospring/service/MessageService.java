@@ -15,8 +15,7 @@ import java.util.List;
  */
 
 
-public interface MessageService
-{
+public interface MessageService {
     public List<Message> listMessages();
 
     public void SaveMessage(Message message);

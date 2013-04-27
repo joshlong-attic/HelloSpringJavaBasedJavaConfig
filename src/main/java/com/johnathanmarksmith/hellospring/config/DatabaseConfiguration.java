@@ -5,11 +5,16 @@ import com.johnathanmarksmith.hellospring.bean.HelloWorld;
 import com.johnathanmarksmith.hellospring.model.Message;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.hibernate.SessionFactory;
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.jdbc.datasource.init.*;
-import org.springframework.orm.hibernate4.*;
+import org.springframework.jdbc.datasource.init.DataSourceInitializer;
+import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
+import org.springframework.orm.hibernate4.HibernateTransactionManager;
+import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
@@ -52,7 +57,7 @@ public class DatabaseConfiguration {
     public LocalSessionFactoryBean sessionFactory(Environment environment,
                                                   DataSource dataSource) {
 
-        String packageOfModelBeans =  Message.class.getPackage().getName();
+        String packageOfModelBeans = Message.class.getPackage().getName();
         LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
         factoryBean.setDataSource(dataSource);
         factoryBean.setHibernateProperties(buildHibernateProperties(environment));

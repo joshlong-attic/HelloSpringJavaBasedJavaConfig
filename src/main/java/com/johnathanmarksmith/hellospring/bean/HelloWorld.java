@@ -11,17 +11,14 @@ package com.johnathanmarksmith.hellospring.bean;
  */
 
 
-public class HelloWorld
-{
+public class HelloWorld {
     private String message;
 
-    public void setMessage(String message)
-    {
+    public void setMessage(String message) {
         this.message = message;
     }
 
-    public String getMessage()
-    {
+    public String getMessage() {
         return message;
     }
 }

@@ -23,16 +23,14 @@ import java.util.List;
 
 @Transactional
 @Repository
-public class MessageDaoImpl implements MessageDao
-{
+public class MessageDaoImpl implements MessageDao {
 
 
     private Log log = null;
     @Autowired
     private SessionFactory sessionFactory;
 
-    public MessageDaoImpl()
-    {
+    public MessageDaoImpl() {
         super();
         log = LogFactory.getLog(MessageDaoImpl.class);
 
@@ -40,15 +38,12 @@ public class MessageDaoImpl implements MessageDao
 
     @SuppressWarnings("unchecked")
     @Transactional(readOnly = true, propagation = Propagation.REQUIRED)
-    public List<Message> listMessages()
-    {
-        try
-        {
+    public List<Message> listMessages() {
+        try {
             return (List<Message>) sessionFactory.getCurrentSession()
                     .createCriteria(Message.class).list();
 
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             log.fatal(e.getMessage());
             return null;
         }
@@ -57,15 +52,12 @@ public class MessageDaoImpl implements MessageDao
 
     @SuppressWarnings("unchecked")
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
-    public void SaveOrUpdateMessage(Message message)
-    {
-        try
-        {
+    public void SaveOrUpdateMessage(Message message) {
+        try {
             Session mySession = sessionFactory.getCurrentSession();
             mySession.save(message);
             mySession.flush();
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             log.fatal(e.getMessage());
         }
     }

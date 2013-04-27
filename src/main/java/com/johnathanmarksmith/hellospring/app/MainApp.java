@@ -2,7 +2,6 @@ package com.johnathanmarksmith.hellospring.app;
 
 
 import com.johnathanmarksmith.hellospring.bean.HelloWorld;
-import com.johnathanmarksmith.hellospring.config.HelloWorldConfig;
 import com.johnathanmarksmith.hellospring.model.Message;
 import com.johnathanmarksmith.hellospring.service.MessageService;
 import org.apache.log4j.Logger;
@@ -24,15 +23,18 @@ import static org.apache.log4j.Logger.getLogger;
  */
 
 
-public class MainApp
-{
+public class MainApp {
 
     private static final Logger LOGGER = getLogger(MainApp.class);
 
+    private static String findParentPackage(Class<?> clazz) {
+        Package pkg = clazz.getPackage();
+        String packageName = pkg.getName();
+        return packageName.substring(0, packageName.lastIndexOf("."));
+    }
 
-    public static void main(String[] args)
-    {
-        ApplicationContext context = new AnnotationConfigApplicationContext(HelloWorldConfig.class);
+    public static void main(String[] args) {
+        ApplicationContext context = new AnnotationConfigApplicationContext(findParentPackage(MainApp.class));
 
 
         MessageService mService = context.getBean(MessageService.class);

@@ -4,7 +4,10 @@ import com.johnathanmarksmith.hellospring.bean.HelloWorld;
 import com.johnathanmarksmith.hellospring.service.MessageService;
 import com.johnathanmarksmith.hellospring.service.MessageServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 
 /**
@@ -23,25 +26,21 @@ import org.springframework.core.env.Environment;
 
 
 @Configuration
-@ComponentScan(basePackages = {"com.johnathanmarksmith.hellospring"})
 @Import(DatabaseConfiguration.class)
 @PropertySource("classpath:application.properties")
-public class HelloWorldConfig
-{
+public class HelloWorldConfig {
 
     @Autowired
     Environment env;
 
     @Bean
-    public MessageService messageService()
-    {
+    public MessageService messageService() {
         return new MessageServiceImpl();
     }
 
 
     @Bean
-    public HelloWorld getHelloWorld()
-    {
+    public HelloWorld getHelloWorld() {
         HelloWorld hw = new HelloWorld();
 
        /*
